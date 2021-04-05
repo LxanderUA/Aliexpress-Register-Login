@@ -1,2 +1,5 @@
 # Aliexpress-Register-Login
-Автоматический вход/регситрация на Алиэкспресс
+Автоматический вход/региcтрация на Алиэкспресс
+
+write on box
+login:password
