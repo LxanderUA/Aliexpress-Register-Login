@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Aliexpress Register/Login
 // @namespace    http://tampermonkey.net/
-// @version      1.0
-// @description  Автоматический вход/регситрация на Алиэкспресс
-// @author       Andronio
-// @homepage     https://github.com/Andronio2/Aliexpress-Register-Login
-// @supportURL   https://github.com/Andronio2/Aliexpress-Register-Login
-// @updateURL    https://github.com/Andronio2/Aliexpress-Register-Login/raw/master/Aliexpress%20Register-Login.user.js
-// @downloadURL  https://github.com/Andronio2/Aliexpress-Register-Login/raw/master/Aliexpress%20Register-Login.user.js
+// @version      1.1
+// @description  Автоматический вход/региcтрация на Алиэкспресс
+// @author       Andronio + Lexander
+// @homepage     https://github.com/LxanderUA/Aliexpress-Register-Login
+// @supportURL   https://github.com/LxanderUA/Aliexpress-Register-Login
+// @updateURL    https://github.com/LxanderUA/Aliexpress-Register-Login/raw/master/Aliexpress%20Register-Login.user.js
+// @downloadURL  https://github.com/LxanderUA/Aliexpress-Register-Login/raw/master/Aliexpress%20Register-Login.user.js
 // @match        https://login.aliexpress.com/*
 // @match        https://login.aliexpress.ru/*
 // @grant        none
@@ -71,7 +71,7 @@
 
 		mass = parseString(namepass.value);
 		if (mass) {
-			document.querySelectorAll(".next-tabs-tab")[0].click();
+			document.querySelectorAll("li.fm-tabs-tab")[0].click();
 			let email = document.querySelector(".email");
 			let pass = document.querySelector(".password");
 			email.setAttribute("value", mass[0]);
@@ -105,10 +105,10 @@
 
 		mass = parseString(namepass.value);
 		if (mass) {
-			document.querySelectorAll(".next-tabs-tab")[1].click();
+			document.querySelectorAll("li.fm-tabs-tab")[1].click();
 			let signName = document.getElementById("fm-login-id");
 			let signPass = document.getElementById("fm-login-password");
-			let enterButton = document.querySelector(".fm-button.fm-submit.password-login");
+			let enterButton = document.querySelector("button.fm-button");
 			signPass.value = mass[1];
 			signName.value = mass[0];
 			enterButton.click();
@@ -135,6 +135,6 @@
 			inp.dispatchEvent(new Event('input'));
 			inp.dispatchEvent(new Event('blur'));
 			setTimeout(checkSlider, 200);
-		} else document.querySelector(".fm-button.fm-submit.password-login").click();
+		} else document.querySelector("button.fm-button").click();
 	}
 })();
